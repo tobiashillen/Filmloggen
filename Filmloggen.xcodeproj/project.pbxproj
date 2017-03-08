@@ -16,6 +16,7 @@
 		8BD269421E70706400A3B308 /* SearchResultTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD269411E70706400A3B308 /* SearchResultTableViewController.swift */; };
 		8BD269441E7070AD00A3B308 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD269431E7070AD00A3B308 /* DetailViewController.swift */; };
 		8BD269461E70711500A3B308 /* FilmLogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD269451E70711500A3B308 /* FilmLogTableViewController.swift */; };
+		8BD269481E70794E00A3B308 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD269471E70794E00A3B308 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		8BD269411E70706400A3B308 /* SearchResultTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewController.swift; sourceTree = "<group>"; };
 		8BD269431E7070AD00A3B308 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8BD269451E70711500A3B308 /* FilmLogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmLogTableViewController.swift; sourceTree = "<group>"; };
+		8BD269471E70794E00A3B308 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				8BD269411E70706400A3B308 /* SearchResultTableViewController.swift */,
 				8BD269431E7070AD00A3B308 /* DetailViewController.swift */,
 				8BD269451E70711500A3B308 /* FilmLogTableViewController.swift */,
+				8BD269471E70794E00A3B308 /* Movie.swift */,
 			);
 			path = Filmloggen;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD269481E70794E00A3B308 /* Movie.swift in Sources */,
 				8BD269461E70711500A3B308 /* FilmLogTableViewController.swift in Sources */,
 				8BD269421E70706400A3B308 /* SearchResultTableViewController.swift in Sources */,
 				8B853E3D1E6F484A00BFE70E /* FirstViewController.swift in Sources */,
