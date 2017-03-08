@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Filmloggen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FirstViewController" customModule="Filmloggen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -45,6 +45,24 @@
                                     <segue destination="Lex-iM-eom" kind="show" id="vdU-Pl-HLK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3h-3b-sIa">
+                                <rect key="frame" x="20" y="698" width="374" height="30"/>
+                                <state key="normal" title="Vill se-listan">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dbQ-aE-RyO" kind="show" id="VdJ-hm-O5E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twn-t6-QxV">
+                                <rect key="frame" x="20" y="660" width="374" height="30"/>
+                                <state key="normal" title="Din filmlogg">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dbQ-aE-RyO" kind="show" id="g7f-cl-vzv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -54,22 +72,28 @@
                             <constraint firstItem="LyX-3n-Kli" firstAttribute="leading" secondItem="Wq8-yA-zSp" secondAttribute="leading" id="KyA-SN-Ba3"/>
                             <constraint firstItem="LyX-3n-Kli" firstAttribute="trailing" secondItem="Wq8-yA-zSp" secondAttribute="trailing" id="RAz-e8-IKm"/>
                             <constraint firstItem="Wq8-yA-zSp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bM1-GR-9lv"/>
+                            <constraint firstItem="O3h-3b-sIa" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="bdc-bJ-Uz1"/>
+                            <constraint firstItem="O3h-3b-sIa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="c8o-7k-ZR1"/>
+                            <constraint firstItem="Twn-t6-QxV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ja2-dk-rba"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="O3h-3b-sIa" secondAttribute="bottom" constant="8" symbolic="YES" id="knD-ow-RMw"/>
                             <constraint firstItem="LyX-3n-Kli" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lTj-np-xgP"/>
                             <constraint firstItem="LyX-3n-Kli" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="leP-AS-IJo"/>
                             <constraint firstItem="Nqo-di-4H8" firstAttribute="top" secondItem="Wq8-yA-zSp" secondAttribute="bottom" constant="8" symbolic="YES" id="pXo-X0-pUJ"/>
                             <constraint firstItem="LyX-3n-Kli" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="qdO-L2-GCh"/>
+                            <constraint firstItem="Twn-t6-QxV" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="rxi-4O-krN"/>
+                            <constraint firstItem="O3h-3b-sIa" firstAttribute="top" secondItem="Twn-t6-QxV" secondAttribute="bottom" constant="8" symbolic="YES" id="yQt-Q1-ORE"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CaZ-mP-nTS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.375" y="128.75"/>
+            <point key="canvasLocation" x="1043.4782608695652" y="127.98913043478262"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Search Result Table View Controller-->
         <scene sceneID="crf-9f-XyT">
             <objects>
-                <tableViewController id="Lex-iM-eom" sceneMemberID="viewController">
+                <tableViewController id="Lex-iM-eom" customClass="SearchResultTableViewController" customModule="Filmloggen" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="U1k-Kp-glD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +103,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wBd-rV-iEk" id="jyG-B2-iRh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
@@ -95,12 +119,43 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgl-kY-3Z8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1886" y="-161"/>
+            <point key="canvasLocation" x="2083" y="-138"/>
         </scene>
-        <!--View Controller-->
+        <!--Film Log Table View Controller-->
+        <scene sceneID="4XF-wv-iUk">
+            <objects>
+                <tableViewController id="dbQ-aE-RyO" customClass="FilmLogTableViewController" customModule="Filmloggen" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="tw3-Bw-Nc8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="oFE-Xl-iCY">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oFE-Xl-iCY" id="cNL-cw-gbk">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ck4-rJ-1PH" kind="show" id="wg6-15-VX9"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dbQ-aE-RyO" id="Vfa-Kb-Ph5"/>
+                            <outlet property="delegate" destination="dbQ-aE-RyO" id="dsO-zi-Lub"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TJc-AC-f76" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2083" y="682"/>
+        </scene>
+        <!--Detail View Controller-->
         <scene sceneID="Rwo-zo-m1b">
             <objects>
-                <viewController id="ck4-rJ-1PH" sceneMemberID="viewController">
+                <viewController id="ck4-rJ-1PH" customClass="DetailViewController" customModule="Filmloggen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6NY-xj-JJb"/>
                         <viewControllerLayoutGuide type="bottom" id="8jM-dz-6yl"/>
@@ -242,7 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gu5-SS-ufA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2804" y="-161"/>
+            <point key="canvasLocation" x="2843" y="148"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eR9-QR-HwW">
@@ -267,4 +322,8 @@
         <image name="Logo" width="736" height="267"/>
         <image name="Tempposter" width="300" height="450"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="VdJ-hm-O5E"/>
+        <segue reference="wg6-15-VX9"/>
+    </inferredMetricsTieBreakers>
 </document>
