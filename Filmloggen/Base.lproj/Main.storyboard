@@ -42,7 +42,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Lex-iM-eom" kind="show" id="vdU-Pl-HLK"/>
+                                    <segue destination="Lex-iM-eom" kind="show" identifier="search" id="vdU-Pl-HLK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O3h-3b-sIa">
@@ -51,7 +51,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dbQ-aE-RyO" kind="show" id="VdJ-hm-O5E"/>
+                                    <segue destination="dbQ-aE-RyO" kind="show" identifier="watchlist" id="VdJ-hm-O5E"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twn-t6-QxV">
@@ -60,7 +60,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="dbQ-aE-RyO" kind="show" id="g7f-cl-vzv"/>
+                                    <segue destination="dbQ-aE-RyO" kind="show" identifier="filmlog" id="g7f-cl-vzv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,6 +85,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CaZ-mP-nTS"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="Wq8-yA-zSp" id="bNt-ZG-Gej"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -99,14 +102,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="wBd-rV-iEk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="wBd-rV-iEk" customClass="SearchResultTableViewCell" customModule="Filmloggen" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wBd-rV-iEk" id="jyG-B2-iRh">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Terminator (1984)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-QJ-1ps">
+                                            <rect key="frame" x="8" y="8" width="275" height="27.666666666666664"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️⭐️⭐️⭐️⭐️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSc-LT-306">
+                                            <rect key="frame" x="291" y="8" width="115" height="27.666666666666664"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="115" id="NbN-Oh-fkm"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="PSc-LT-306" firstAttribute="leading" secondItem="h7d-QJ-1ps" secondAttribute="trailing" constant="8" symbolic="YES" id="60q-Th-ZNV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="PSc-LT-306" secondAttribute="bottom" id="Hh7-ca-HkT"/>
+                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="leading" secondItem="jyG-B2-iRh" secondAttribute="leadingMargin" id="Yym-Se-MPd"/>
+                                        <constraint firstItem="PSc-LT-306" firstAttribute="top" secondItem="jyG-B2-iRh" secondAttribute="topMargin" id="l9O-It-2wK"/>
+                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="top" secondItem="jyG-B2-iRh" secondAttribute="topMargin" id="ssK-B9-xLn"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="h7d-QJ-1ps" secondAttribute="bottom" id="uCc-da-2PF"/>
+                                        <constraint firstItem="PSc-LT-306" firstAttribute="trailing" secondItem="jyG-B2-iRh" secondAttribute="trailingMargin" id="zUt-bb-KZC"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="movieTitleLabel" destination="h7d-QJ-1ps" id="h5X-pb-VGU"/>
+                                    <outlet property="userRatingLabel" destination="PSc-LT-306" id="dzw-kz-aXI"/>
                                     <segue destination="ck4-rJ-1PH" kind="show" id="296-P1-RBS"/>
                                 </connections>
                             </tableViewCell>
@@ -119,7 +150,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgl-kY-3Z8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2083" y="-138"/>
+            <point key="canvasLocation" x="2082.608695652174" y="-138.58695652173915"/>
         </scene>
         <!--Film Log Table View Controller-->
         <scene sceneID="4XF-wv-iUk">
@@ -230,12 +261,20 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paul Winfield" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9M-ED-2FB">
+                                                <rect key="frame" x="0.0" y="184" width="187" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="KrA-FJ-zeZ" firstAttribute="top" secondItem="2Xr-OQ-zLi" secondAttribute="bottom" constant="8" symbolic="YES" id="2vc-op-fFs"/>
                                             <constraint firstItem="EST-Gl-xqh" firstAttribute="leading" secondItem="y12-cB-K5J" secondAttribute="leading" id="9GC-pA-vU4"/>
+                                            <constraint firstAttribute="trailing" secondItem="H9M-ED-2FB" secondAttribute="trailing" id="CU7-Zz-wBS"/>
                                             <constraint firstItem="Ywn-im-FdO" firstAttribute="trailing" secondItem="KrA-FJ-zeZ" secondAttribute="trailing" id="DDi-a7-1ef"/>
+                                            <constraint firstItem="H9M-ED-2FB" firstAttribute="leading" secondItem="y12-cB-K5J" secondAttribute="leading" id="DFy-nB-tb6"/>
                                             <constraint firstItem="hEx-Iv-y7l" firstAttribute="top" secondItem="EST-Gl-xqh" secondAttribute="bottom" constant="8" symbolic="YES" id="KQI-yb-G5s"/>
                                             <constraint firstAttribute="trailing" secondItem="d1i-vv-9RM" secondAttribute="trailing" id="RPM-LG-IDY"/>
                                             <constraint firstItem="Ywn-im-FdO" firstAttribute="leading" secondItem="KrA-FJ-zeZ" secondAttribute="leading" id="Rot-kN-mEQ"/>
@@ -253,6 +292,7 @@
                                             <constraint firstItem="d1i-vv-9RM" firstAttribute="leading" secondItem="y12-cB-K5J" secondAttribute="leading" id="get-uX-Bmp"/>
                                             <constraint firstItem="2Xr-OQ-zLi" firstAttribute="leading" secondItem="JuH-Ns-h8Q" secondAttribute="leading" id="luR-TO-0kK"/>
                                             <constraint firstAttribute="trailing" secondItem="hEx-Iv-y7l" secondAttribute="trailing" id="nke-Ud-CEL"/>
+                                            <constraint firstItem="H9M-ED-2FB" firstAttribute="top" secondItem="skG-Ay-fod" secondAttribute="bottom" constant="8" symbolic="YES" id="vbr-jP-xAj"/>
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ddd-xW-wxW">
@@ -294,6 +334,18 @@
                             <constraint firstAttribute="leadingMargin" secondItem="ddd-xW-wxW" secondAttribute="leading" id="zaj-OS-2Kg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actor1Label" destination="hEx-Iv-y7l" id="kOj-Zx-tqp"/>
+                        <outlet property="actor2Label" destination="d1i-vv-9RM" id="21g-qr-3jK"/>
+                        <outlet property="actor3Label" destination="skG-Ay-fod" id="Raq-ir-PJe"/>
+                        <outlet property="actor4Label" destination="H9M-ED-2FB" id="7Vw-lY-Roo"/>
+                        <outlet property="directorLabel" destination="Ywn-im-FdO" id="dta-ye-aCg"/>
+                        <outlet property="genreLabel" destination="2Xr-OQ-zLi" id="OXt-hN-w87"/>
+                        <outlet property="imdbRatingLabel" destination="KrA-FJ-zeZ" id="I6t-al-qDG"/>
+                        <outlet property="plotTextView" destination="ddd-xW-wxW" id="5kH-Lt-yO6"/>
+                        <outlet property="runningTimeLable" destination="JuH-Ns-h8Q" id="7G8-jS-IOI"/>
+                        <outlet property="titleLabel" destination="cgI-L0-xwb" id="phc-01-fjE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gu5-SS-ufA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -324,6 +376,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VdJ-hm-O5E"/>
-        <segue reference="wg6-15-VX9"/>
+        <segue reference="296-P1-RBS"/>
     </inferredMetricsTieBreakers>
 </document>

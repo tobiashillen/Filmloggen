@@ -14,13 +14,14 @@ class Movie {
     let title: String
     let year: Int
     var posterUrl: URL?
-    var Plot: String?
-    var directors: [String]?
+    var plot: String?
+    var director: String?
     var actors: [String]?
-    var genre: [String]?
+    var genre: String?
     var runningTime: Int?
     var imdbRating: Double?
     var userRating: Int?
+    var watchDate: Date?
     var watchPriority: Int?
     
     init(imdbID : String, title : String, year : Int) {

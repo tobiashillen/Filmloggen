@@ -10,20 +10,23 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var searchTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //let searchResultVC : SearchResultTableViewController = segue.destination as! SearchResultTableViewController
-        
-        
+        if segue.identifier == "search"{
+            let searchResultVC : SearchResultTableViewController = segue.destination as! SearchResultTableViewController
+            if let searchWord = searchTextField.text {
+                searchResultVC.searchWord = searchWord
+            }
+        }
     }
 }
 
