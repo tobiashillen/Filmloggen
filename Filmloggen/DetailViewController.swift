@@ -21,7 +21,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var actor4Label: UILabel!
     @IBOutlet weak var plotTextView: UITextView!
     
-    var movie: Movie?
+    var movie: Movie!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,31 +29,70 @@ class DetailViewController: UIViewController {
     }
     
     func setUpView() {
-        if let title = movie?.title,
-            let year = movie?.year {
-            titleLabel.text = "\(title) (\(year))"
+        if let year = movie.year {
+            titleLabel.text = "\(movie.title) (\(year))"
         } else {
-            NSLog("No movie information found.")
+            titleLabel.text = "\(movie.title))"
         }
-        if let runningTime = movie?.runningTime,
-            let genre = movie?.genre,
-            let imdbRating = movie?.imdbRating,
-            let director = movie?.director,
-            let actors = movie?.actors,
-            let plot = movie?.plot{
+ 
+        if let runningTime = movie.runningTime {
             runningTimeLable.text = "\(runningTime) minuter"
+        } else {
+            runningTimeLable.text = "? minuter"
+        }
+        
+        if let genre = movie.genre {
             genreLabel.text = genre
+        } else {
+            genreLabel.text = " "
+        }
+        
+        if let imdbRating = movie.imdbRating {
             imdbRatingLabel.text = "IMDB: \(imdbRating)"
+        } else {
+            imdbRatingLabel.text = "IMDB: "
+        }
+        
+        if let director = movie.director {
             directorLabel.text = "Regi: \(director)"
-            actor1Label.text = actors[0]
-            actor2Label.text = actors[1]
-            actor3Label.text = actors[2]
-            actor4Label.text = actors[3]
+        } else {
+            directorLabel.text = "Regi: "
+        }
+        
+        if let actors = movie.actors {
+            if actors.count > 0 {
+                actor1Label.text = actors[0]
+            } else {
+                actor1Label.text = " "
+            }
+            if actors.count > 1 {
+                actor2Label.text = actors[1]
+            } else {
+                actor2Label.text = " "
+            }
+            if actors.count > 2 {
+                actor3Label.text = actors[2]
+            } else {
+                actor3Label.text = " "
+            }
+            if actors.count > 3 {
+                actor4Label.text = actors[3]
+            } else {
+                actor4Label.text = " "
+            }
+        } else {
+            actor1Label.text = " "
+            actor2Label.text = " "
+            actor3Label.text = " "
+            actor4Label.text = " "
+        }
+        
+        if let plot = movie.plot {
             plotTextView.text = plot
+        } else {
+            plotTextView.text = " "
         }
     }
-    
-
     /*
     // MARK: - Navigation
 

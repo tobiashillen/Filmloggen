@@ -109,30 +109,27 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Terminator (1984)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-QJ-1ps">
-                                            <rect key="frame" x="8" y="8" width="275" height="27.666666666666664"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Terminator (1984)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-QJ-1ps">
+                                            <rect key="frame" x="8" y="0.0" width="398" height="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️⭐️⭐️⭐️⭐️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSc-LT-306">
-                                            <rect key="frame" x="291" y="8" width="115" height="27.666666666666664"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="115" id="NbN-Oh-fkm"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️⭐️⭐️⭐️⭐️" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSc-LT-306">
+                                            <rect key="frame" x="8" y="22" width="398" height="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="0.22773972602739725" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="PSc-LT-306" firstAttribute="leading" secondItem="h7d-QJ-1ps" secondAttribute="trailing" constant="8" symbolic="YES" id="60q-Th-ZNV"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="PSc-LT-306" secondAttribute="bottom" id="Hh7-ca-HkT"/>
-                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="leading" secondItem="jyG-B2-iRh" secondAttribute="leadingMargin" id="Yym-Se-MPd"/>
-                                        <constraint firstItem="PSc-LT-306" firstAttribute="top" secondItem="jyG-B2-iRh" secondAttribute="topMargin" id="l9O-It-2wK"/>
-                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="top" secondItem="jyG-B2-iRh" secondAttribute="topMargin" id="ssK-B9-xLn"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="h7d-QJ-1ps" secondAttribute="bottom" id="uCc-da-2PF"/>
-                                        <constraint firstItem="PSc-LT-306" firstAttribute="trailing" secondItem="jyG-B2-iRh" secondAttribute="trailingMargin" id="zUt-bb-KZC"/>
+                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="leading" secondItem="PSc-LT-306" secondAttribute="leading" id="15w-gw-7VM"/>
+                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="trailing" secondItem="PSc-LT-306" secondAttribute="trailing" id="6ZQ-h1-GE0"/>
+                                        <constraint firstItem="PSc-LT-306" firstAttribute="top" secondItem="h7d-QJ-1ps" secondAttribute="bottom" constant="8" symbolic="YES" id="AXh-aZ-IFb"/>
+                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="top" secondItem="jyG-B2-iRh" secondAttribute="top" id="Gcm-VN-q1d"/>
+                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="leading" secondItem="jyG-B2-iRh" secondAttribute="leadingMargin" id="jiY-Vv-ShB"/>
+                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="trailing" secondItem="jyG-B2-iRh" secondAttribute="trailingMargin" id="y5b-Ht-Utx"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

@@ -12,7 +12,7 @@ class Movie {
 
     let imdbID: String
     let title: String
-    let year: Int
+    var year: Int?
     var posterUrl: URL?
     var plot: String?
     var director: String?
@@ -24,6 +24,13 @@ class Movie {
     var watchDate: Date?
     var watchPriority: Int?
     
+    init(imdbID : String, title : String) {
+        
+        self.imdbID = imdbID
+        self.title = title
+        
+    }
+    
     init(imdbID : String, title : String, year : Int) {
         
         self.imdbID = imdbID
@@ -31,5 +38,6 @@ class Movie {
         self.year = year
     
     }
+
     
 }
