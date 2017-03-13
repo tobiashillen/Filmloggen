@@ -38,6 +38,4 @@ class Movie {
         self.year = year
     
     }
-
-    
 }

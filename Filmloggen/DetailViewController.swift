@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
-        
+
         if let url = movie.posterUrl {
             webRequestHelper.downloadImage(url: url, closure: { image in
                 self.posterImage.image = image
