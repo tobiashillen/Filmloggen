@@ -20,12 +20,20 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var actor3Label: UILabel!
     @IBOutlet weak var actor4Label: UILabel!
     @IBOutlet weak var plotTextView: UITextView!
+    @IBOutlet weak var posterImage: UIImageView!
     
     var movie: Movie!
+    let webRequestHelper = WebRequestHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
+        
+        if let url = movie.posterUrl {
+            webRequestHelper.downloadImage(url: url, closure: { image in
+                self.posterImage.image = image
+            })
+        }
     }
     
     func setUpView() {

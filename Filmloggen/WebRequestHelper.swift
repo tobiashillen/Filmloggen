@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class WebRequestHelper {
     let apiUrlString = "http://www.omdbapi.com/?"
@@ -18,7 +19,6 @@ class WebRequestHelper {
         let formatedSearchString = searchString.replacingOccurrences(of: " ", with: "+").lowercased()
         if let safeUrlString = "\(apiUrlString)s=\(formatedSearchString)&type=movie&page=\(page)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
             let url = URL(string: safeUrlString) {
-            print(safeUrlString)
             var pages = 0
             
             self.getData(searchQuery: url, closure: { data in
@@ -38,11 +38,9 @@ class WebRequestHelper {
                         page += 1
                         if let safeUrlString = "\(self.apiUrlString)s=\(formatedSearchString)&type=movie&page=\(page)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
                             let url = URL(string: safeUrlString) {
-                            print(safeUrlString)
                             var test = page
                             self.getData(searchQuery: url, closure: { data in
                                 let moviesForPage = self.parseSearchResults(data: data, pageCountClosure: {_ in })
-                                print("Adding for page \(test)")
                                 test += 1
                                 movies += moviesForPage
                                 closure(movies)
@@ -161,5 +159,16 @@ class WebRequestHelper {
             }
         }
         task.resume()
+    }
+    
+    func downloadImage(url: URL, closure: @escaping (UIImage) -> Void) {
+        getData(searchQuery: url, closure: { data in
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data) {
+                    closure(image)
+                }
+            }
+            
+        })
     }
 }
