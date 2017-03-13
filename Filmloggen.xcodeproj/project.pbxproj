@@ -19,6 +19,7 @@
 		8BD269481E70794E00A3B308 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD269471E70794E00A3B308 /* Movie.swift */; };
 		8BD2696B1E7194E300A3B308 /* WebRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2696A1E7194E300A3B308 /* WebRequestHelper.swift */; };
 		8BD2696D1E76D09000A3B308 /* SaveToLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2696C1E76D09000A3B308 /* SaveToLogViewController.swift */; };
+		8BD2696F1E772B5900A3B308 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD2696E1E772B5900A3B308 /* CoreDataHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8BD269471E70794E00A3B308 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		8BD2696A1E7194E300A3B308 /* WebRequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebRequestHelper.swift; sourceTree = "<group>"; };
 		8BD2696C1E76D09000A3B308 /* SaveToLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveToLogViewController.swift; sourceTree = "<group>"; };
+		8BD2696E1E772B5900A3B308 /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				8BD269471E70794E00A3B308 /* Movie.swift */,
 				8BD2696A1E7194E300A3B308 /* WebRequestHelper.swift */,
 				8BD2696C1E76D09000A3B308 /* SaveToLogViewController.swift */,
+				8BD2696E1E772B5900A3B308 /* CoreDataHelper.swift */,
 			);
 			path = Filmloggen;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD2696F1E772B5900A3B308 /* CoreDataHelper.swift in Sources */,
 				8BD2696B1E7194E300A3B308 /* WebRequestHelper.swift in Sources */,
 				8BD269481E70794E00A3B308 /* Movie.swift in Sources */,
 				8BD269461E70711500A3B308 /* FilmLogTableViewController.swift in Sources */,
