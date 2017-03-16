@@ -27,7 +27,6 @@ class SaveToLogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(movie!.imdbID)
     }
     
 
@@ -68,8 +67,6 @@ class SaveToLogViewController: UIViewController {
             rate4Button.titleLabel?.textColor = orangeColor
             rate5Button.setTitleColor(orangeColor, for: .normal)
         }
-        
-        print(rating)
     }
     
     
