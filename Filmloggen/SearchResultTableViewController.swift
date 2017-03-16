@@ -40,26 +40,45 @@ class SearchResultTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchResultTableViewCell
         cell.movie = searchResults[indexPath.row]
+        
         if let year = cell.movie.year {
             cell.movieTitleLabel.text = "\(cell.movie.title) (\(year))"
         } else {
             cell.movieTitleLabel.text = "\(cell.movie.title) (-)"
         }
-        //TO-DO Check if movie is present in log.
-        if let userRating = searchResults[indexPath.row].userRating {
-            switch userRating {
-            case 1:
-                cell.userRatingLabel.text = "⭐️"
-            case 2:
-                cell.userRatingLabel.text = "⭐️⭐️"
-            case 3:
-                cell.userRatingLabel.text = "⭐️⭐️⭐️"
-            case 4:
-                cell.userRatingLabel.text = "⭐️⭐️⭐️⭐️"
-            case 5:
-                cell.userRatingLabel.text = "⭐️⭐️⭐️⭐️⭐️"
-            default:
-                cell.userRatingLabel.text = ""
+        
+        if let posterImage = cell.movie.posterImage {
+            cell.posterImage.image = posterImage
+        } else {
+            cell.posterImage.image = #imageLiteral(resourceName: "Tempposter")
+            if let posterURL = cell.movie.posterUrl {
+                cell.posterImage.image = #imageLiteral(resourceName: "Tempposter")
+                webRequestHelper.downloadImage(url: posterURL, closure: { image in
+                    DispatchQueue.main.async {
+                        cell.movie.posterImage = image
+                        self.tableView.reloadData()
+                    }
+                })
+            } else {
+                cell.posterImage.image = #imageLiteral(resourceName: "Tempposter")
+            }
+        }
+        
+        if let actors = cell.movie.actors {
+            if actors.count > 0 {
+                cell.actorsLabel.text! = "\(actors[0])"
+            }
+            if actors.count > 1 {
+                cell.actorsLabel.text! += ", \(actors[1])"
+            }
+        } else {
+            if !cell.movie.isAllInfoDownloaded {
+                webRequestHelper.getDetails(movie: cell.movie!, closure: { _ in
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                })
+                cell.movie.isAllInfoDownloaded = true
             }
         }
         return cell
@@ -114,15 +133,15 @@ class SearchResultTableViewController: UITableViewController {
             })
         }
     }
-    
-    
 }
 
 
 class SearchResultTableViewCell : UITableViewCell {
     
+    @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
-    @IBOutlet weak var userRatingLabel: UILabel!
+    @IBOutlet weak var actorsLabel: UILabel!
+    
     var movie : Movie!
     
 }

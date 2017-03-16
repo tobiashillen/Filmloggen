@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Movie {
 
@@ -23,6 +24,9 @@ class Movie {
     var userRating: Int?
     var watchDate: Date?
     var watchPriority: Int?
+    var posterImage: UIImage?
+    var isAllInfoDownloaded = false
+
     
     init(imdbID : String, title : String) {
         

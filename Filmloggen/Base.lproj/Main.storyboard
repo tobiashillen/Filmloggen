@@ -95,26 +95,32 @@
         <scene sceneID="crf-9f-XyT">
             <objects>
                 <tableViewController id="Lex-iM-eom" customClass="SearchResultTableViewController" customModule="Filmloggen" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="U1k-Kp-glD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="U1k-Kp-glD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="wBd-rV-iEk" customClass="SearchResultTableViewCell" customModule="Filmloggen" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="wBd-rV-iEk" customClass="SearchResultTableViewCell" customModule="Filmloggen" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wBd-rV-iEk" id="jyG-B2-iRh">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Terminator (1984)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-QJ-1ps">
-                                            <rect key="frame" x="8" y="0.0" width="359" height="14"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Terminator (1984)" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7d-QJ-1ps">
+                                            <rect key="frame" x="80" y="8" width="287" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⭐️⭐️⭐️⭐️⭐️" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSc-LT-306">
-                                            <rect key="frame" x="8" y="22" width="359" height="14"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tempposter" translatesAutoresizingMaskIntoConstraints="NO" id="oIB-vY-SLG">
+                                            <rect key="frame" x="8" y="0.0" width="64" height="99"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="64" id="7eC-P4-wW4"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arnold Schwarzenegger, Linda Hamilton" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOS-UP-w2J">
+                                            <rect key="frame" x="80" y="33" width="287" height="15"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -122,17 +128,21 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="0.40000000000000002" blue="0.0" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="leading" secondItem="PSc-LT-306" secondAttribute="leading" id="15w-gw-7VM"/>
-                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="trailing" secondItem="PSc-LT-306" secondAttribute="trailing" id="6ZQ-h1-GE0"/>
-                                        <constraint firstItem="PSc-LT-306" firstAttribute="top" secondItem="h7d-QJ-1ps" secondAttribute="bottom" constant="8" symbolic="YES" id="AXh-aZ-IFb"/>
-                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="top" secondItem="jyG-B2-iRh" secondAttribute="top" id="Gcm-VN-q1d"/>
-                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="leading" secondItem="jyG-B2-iRh" secondAttribute="leadingMargin" id="jiY-Vv-ShB"/>
-                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="trailing" secondItem="jyG-B2-iRh" secondAttribute="trailingMargin" id="y5b-Ht-Utx"/>
+                                        <constraint firstItem="EOS-UP-w2J" firstAttribute="top" secondItem="h7d-QJ-1ps" secondAttribute="bottom" constant="8" id="BJE-59-xEp"/>
+                                        <constraint firstAttribute="topMargin" secondItem="h7d-QJ-1ps" secondAttribute="top" id="Dhx-ti-wsJ"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="EOS-UP-w2J" secondAttribute="trailing" id="LkV-Ka-Haj"/>
+                                        <constraint firstItem="oIB-vY-SLG" firstAttribute="top" secondItem="jyG-B2-iRh" secondAttribute="top" id="Mdw-IV-xIK"/>
+                                        <constraint firstAttribute="bottom" secondItem="oIB-vY-SLG" secondAttribute="bottom" id="NTB-XH-RTh"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="oIB-vY-SLG" secondAttribute="leading" id="SFT-V4-x0o"/>
+                                        <constraint firstItem="h7d-QJ-1ps" firstAttribute="leading" secondItem="oIB-vY-SLG" secondAttribute="trailing" constant="8" id="TZG-0f-hGb"/>
+                                        <constraint firstItem="EOS-UP-w2J" firstAttribute="leading" secondItem="oIB-vY-SLG" secondAttribute="trailing" constant="8" id="kBm-JO-BR5"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="h7d-QJ-1ps" secondAttribute="trailing" id="ndY-MC-DZ7"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="actorsLabel" destination="EOS-UP-w2J" id="E8g-Tc-Fcj"/>
                                     <outlet property="movieTitleLabel" destination="h7d-QJ-1ps" id="h5X-pb-VGU"/>
-                                    <outlet property="userRatingLabel" destination="PSc-LT-306" id="dzw-kz-aXI"/>
+                                    <outlet property="posterImage" destination="oIB-vY-SLG" id="Ne7-th-0M5"/>
                                     <segue destination="ck4-rJ-1PH" kind="show" id="296-P1-RBS"/>
                                 </connections>
                             </tableViewCell>
@@ -145,7 +155,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xgl-kY-3Z8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2082.608695652174" y="-138.58695652173915"/>
+            <point key="canvasLocation" x="2082.4000000000001" y="-138.98050974512745"/>
         </scene>
         <!--Film Log Table View Controller-->
         <scene sceneID="4XF-wv-iUk">
