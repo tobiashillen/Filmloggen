@@ -17,7 +17,6 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         CoreDataHelper.setUpCoreData()
         CoreDataHelper.printAllCoreMovies()
-        print(CoreDataHelper.isMovieInList(imdbID: "tt0207290", listName: CoreDataHelper.watchListListName))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
