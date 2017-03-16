@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SaveToLogViewController: UIViewController {
     
@@ -15,18 +16,20 @@ class SaveToLogViewController: UIViewController {
     @IBOutlet weak var rate3Button: UIButton!
     @IBOutlet weak var rate4Button: UIButton!
     @IBOutlet weak var rate5Button: UIButton!
+    
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var saveButton: UIButton!
     
     let orangeColor = UIColor(red: 255/255, green: 102/255, blue: 0, alpha: 1)
     let grayColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
-
+    var movie: Movie!
     var rating = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(movie!.imdbID)
     }
+    
 
     @IBAction func onRateButtonPressed(_ sender: UIButton) {
         if sender == self.view.viewWithTag(1) {
@@ -68,6 +71,31 @@ class SaveToLogViewController: UIViewController {
         
         print(rating)
     }
+    
+    
+    @IBAction func onSaveButtonPressed(_ sender: UIButton) {
+        var coreMovie : CoreMovie!
+        
+        if CoreDataHelper.doCoreMovieExist(imdbId: movie.imdbID) {
+            coreMovie = CoreDataHelper.getCoreMovieFromDB(imdbId: movie.imdbID)
+        } else {
+            coreMovie = CoreDataHelper.createCoreMovie(imdbID: movie.imdbID, title: movie.title)
+        }
+        
+        if let year = movie.year {
+            coreMovie.year = Int16(year)
+        }
+        coreMovie.userRating = Int16(rating)
+        coreMovie.watchDate = datePicker.date as NSDate
+        
+        
+        let filmlog = CoreDataHelper.getListFromDB(listName: CoreDataHelper.filmLogListName)
+        
+        filmlog?.addToMovies(coreMovie)
+        CoreDataHelper.saveContext()
+        self.navigationController!.popViewController(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

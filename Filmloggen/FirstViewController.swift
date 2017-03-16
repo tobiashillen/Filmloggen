@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FirstViewController: UIViewController {
 
@@ -14,19 +15,29 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+        CoreDataHelper.setUpCoreData()
+        CoreDataHelper.printAllCoreMovies()
+        print(CoreDataHelper.isMovieInList(imdbID: "tt0207290", listName: CoreDataHelper.watchListListName))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "search"{
-            let searchResultVC : SearchResultTableViewController = segue.destination as! SearchResultTableViewController
+            let searchResultTVC : SearchResultTableViewController = segue.destination as! SearchResultTableViewController
             if let searchWord = searchTextField.text {
-                searchResultVC.searchWord = searchWord
+                searchResultTVC.searchWord = searchWord
             }
         }
+        
+        if segue.identifier == "filmlog"{
+            let filmLogTVC : FilmLogTableViewController = segue.destination as! FilmLogTableViewController
+            filmLogTVC.filmList = CoreDataHelper.getAllMoviesInList(listName: CoreDataHelper.filmLogListName)!
+        }
+        
+        if segue.identifier == "watchlist"{
+            let filmLogTVC : FilmLogTableViewController = segue.destination as! FilmLogTableViewController
+            filmLogTVC.filmList = CoreDataHelper.getAllMoviesInList(listName: CoreDataHelper.watchListListName)!
+        }
+
     }
 }
 

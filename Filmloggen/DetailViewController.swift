@@ -21,7 +21,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var actor4Label: UILabel!
     @IBOutlet weak var plotTextView: UITextView!
     @IBOutlet weak var posterImage: UIImageView!
+    @IBOutlet weak var watchListButton: UIButton!
     
+    let orangeColor = UIColor(red: 255/255, green: 102/255, blue: 0, alpha: 1)
+    let grayColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
     var movie: Movie!
     let webRequestHelper = WebRequestHelper()
 
@@ -37,6 +40,11 @@ class DetailViewController: UIViewController {
     }
     
     func setUpView() {
+        if CoreDataHelper.isMovieInList(imdbID: movie.imdbID, listName: CoreDataHelper.watchListListName) {
+            disableWatchListButton()
+        }
+        
+        
         if let year = movie.year {
             titleLabel.text = "\(movie.title) (\(year))"
         } else {
@@ -101,14 +109,38 @@ class DetailViewController: UIViewController {
             plotTextView.text = " "
         }
     }
-    /*
+    
+    @IBAction func onWatchListButtonPressed(_ sender: UIButton) {
+        var coreMovie : CoreMovie!
+        
+        if CoreDataHelper.doCoreMovieExist(imdbId: movie.imdbID) {
+            coreMovie = CoreDataHelper.getCoreMovieFromDB(imdbId: movie.imdbID)
+        } else {
+            coreMovie = CoreDataHelper.createCoreMovie(imdbID: movie.imdbID, title: movie.title)
+        }
+        
+        if let year = movie.year {
+            coreMovie.year = Int16(year)
+        }
+        
+        let watchlist = CoreDataHelper.getListFromDB(listName: CoreDataHelper.watchListListName)
+        
+        watchlist?.addToMovies(coreMovie)
+        CoreDataHelper.saveContext()
+        disableWatchListButton()
+    }
+    
+    func disableWatchListButton() {
+        watchListButton.isEnabled = false
+        watchListButton.setTitleColor(grayColor, for: .normal)
+        watchListButton.setTitle("Ligger i din vill se-lista", for: .normal)
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let saveToLogVC : SaveToLogViewController = segue.destination as! SaveToLogViewController
+            saveToLogVC.movie = movie
     }
-    */
 
 }

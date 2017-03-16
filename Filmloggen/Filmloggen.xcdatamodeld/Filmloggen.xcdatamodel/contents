@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+    <entity name="CoreMovie" representedClassName="CoreMovie" syncable="YES" codeGenerationType="class">
+        <attribute name="imdbID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userRating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="watchDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FilmList" inverseName="movies" inverseEntity="FilmList" syncable="YES"/>
+    </entity>
+    <entity name="FilmList" representedClassName="FilmList" syncable="YES" codeGenerationType="class">
+        <attribute name="listName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreMovie" inverseName="lists" inverseEntity="CoreMovie" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CoreMovie" positionX="-45" positionY="0" width="128" height="133"/>
+        <element name="FilmList" positionX="205" positionY="-117" width="128" height="73"/>
+    </elements>
 </model>

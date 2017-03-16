@@ -163,9 +163,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="ck4-rJ-1PH" kind="show" id="wg6-15-VX9"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -325,6 +322,9 @@
                                         <state key="normal" title="Vill se!">
                                             <color key="titleColor" red="0.80000000000000004" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onWatchListButtonPressed:" destination="ck4-rJ-1PH" eventType="touchUpInside" id="ZIb-aB-FMa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -371,6 +371,7 @@
                         <outlet property="posterImage" destination="sBx-zH-LJx" id="TY1-re-Jmc"/>
                         <outlet property="runningTimeLable" destination="JuH-Ns-h8Q" id="7G8-jS-IOI"/>
                         <outlet property="titleLabel" destination="cgI-L0-xwb" id="phc-01-fjE"/>
+                        <outlet property="watchListButton" destination="c2C-CG-bPz" id="60S-Pf-E08"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gu5-SS-ufA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -392,7 +393,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Terminator (1984)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIu-1T-mnT">
                                 <rect key="frame" x="16" y="72" width="343" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <color key="textColor" red="1" green="0.35497028865022995" blue="0.00048069992682875373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AaC-ij-gBv">
@@ -404,18 +405,18 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5b-u8-j9V">
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5b-u8-j9V">
                                         <rect key="frame" x="293" y="5" width="30" height="30"/>
-                                        <state key="normal" title="1">
-                                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="5">
+                                            <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="onRateButtonPressed:" destination="6vd-gR-ZXr" eventType="touchUpInside" id="NG2-av-3ex"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlQ-dF-U2r">
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlQ-dF-U2r">
                                         <rect key="frame" x="255" y="5" width="30" height="30"/>
-                                        <state key="normal" title="2">
+                                        <state key="normal" title="4">
                                             <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
@@ -431,19 +432,19 @@
                                             <action selector="onRateButtonPressed:" destination="6vd-gR-ZXr" eventType="touchUpInside" id="NxF-oH-nhJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-tv-JxC">
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9hh-tv-JxC">
                                         <rect key="frame" x="179" y="5" width="30" height="30"/>
-                                        <state key="normal" title="4">
+                                        <state key="normal" title="2">
                                             <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="onRateButtonPressed:" destination="6vd-gR-ZXr" eventType="touchUpInside" id="IhQ-J8-Y1J"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqT-Bu-SMz">
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqT-Bu-SMz">
                                         <rect key="frame" x="141" y="5" width="30" height="30"/>
-                                        <state key="normal" title="5">
-                                            <color key="titleColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="1">
+                                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="onRateButtonPressed:" destination="6vd-gR-ZXr" eventType="touchUpInside" id="w2y-wk-nr9"/>
@@ -483,6 +484,9 @@
                                 <state key="normal" title="Spara film i loggen">
                                     <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onSaveButtonPressed:" destination="6vd-gR-ZXr" eventType="touchUpInside" id="Qcp-EN-iuI"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -505,11 +509,11 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="peg-zn-Ero" id="yd0-zm-TWe"/>
-                        <outlet property="rate1Button" destination="v5b-u8-j9V" id="kfk-Xc-HXw"/>
-                        <outlet property="rate2Button" destination="tlQ-dF-U2r" id="T42-xa-6Gh"/>
-                        <outlet property="rate3Button" destination="qVr-q4-CMh" id="Qpj-lz-hdD"/>
-                        <outlet property="rate4Button" destination="9hh-tv-JxC" id="v7Z-x2-gGn"/>
-                        <outlet property="rate5Button" destination="tqT-Bu-SMz" id="vui-Pc-cix"/>
+                        <outlet property="rate1Button" destination="tqT-Bu-SMz" id="5Cb-lA-kph"/>
+                        <outlet property="rate2Button" destination="9hh-tv-JxC" id="V44-gE-m3e"/>
+                        <outlet property="rate3Button" destination="qVr-q4-CMh" id="EM1-oc-dc3"/>
+                        <outlet property="rate4Button" destination="tlQ-dF-U2r" id="PcR-oi-gwh"/>
+                        <outlet property="rate5Button" destination="v5b-u8-j9V" id="w3v-SP-yEf"/>
                         <outlet property="saveButton" destination="KvT-fh-85n" id="Tir-mf-ZTN"/>
                     </connections>
                 </viewController>
@@ -542,6 +546,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="VdJ-hm-O5E"/>
-        <segue reference="296-P1-RBS"/>
     </inferredMetricsTieBreakers>
 </document>
