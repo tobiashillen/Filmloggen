@@ -30,11 +30,15 @@ class FirstViewController: UIViewController {
         if segue.identifier == "filmlog"{
             let filmLogTVC : FilmLogTableViewController = segue.destination as! FilmLogTableViewController
             filmLogTVC.filmList = CoreDataHelper.getAllMoviesInList(listName: CoreDataHelper.filmLogListName)!
+            
+            filmLogTVC.filmLogMode = true
         }
         
         if segue.identifier == "watchlist"{
             let filmLogTVC : FilmLogTableViewController = segue.destination as! FilmLogTableViewController
             filmLogTVC.filmList = CoreDataHelper.getAllMoviesInList(listName: CoreDataHelper.watchListListName)!
+            
+            filmLogTVC.filmLogMode = false
         }
 
     }

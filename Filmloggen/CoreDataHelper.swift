@@ -168,11 +168,15 @@ class CoreDataHelper {
         }
         return nil
     }
-    
     class func getAllMoviesInList(listName: String) -> [CoreMovie]? {
         var movieList : [CoreMovie] = []
 
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: coreMovieEntityName)
+        
+        if listName == filmLogListName {
+            request.sortDescriptors = [NSSortDescriptor(key: "watchDate", ascending: false)]
+        }
+        
         do {
             let movies = try getContext().fetch(request) as! [CoreMovie]
             for movie in movies {

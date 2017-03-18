@@ -11,7 +11,10 @@ import CoreData
 
 class FilmLogTableViewController: UITableViewController {
     
+    let webRequestHelper = WebRequestHelper()
     var filmList: [CoreMovie] = []
+    var filmLogMode = true
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +32,64 @@ class FilmLogTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
-        let movie = filmList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LogTableViewCell
+        cell.movie = filmList[indexPath.row]
         
-        cell.textLabel?.text = movie.title
+        if let title = cell.movie.title {
+            cell.titleLabel.text = title
+            cell.titleLabel.text = "\(title) (\(Int(cell.movie.year)))"
+ 
+        }
+        
+        
+        if filmLogMode {
+            if let watchdate = cell.movie.watchDate {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                cell.dateLabel.text = (dateFormatter.string(from: watchdate as Date))
+            }
+            
+            switch cell.movie.userRating {
+            case 1:
+                cell.userRatingLabel.text = "⭐️"
+            case 2:
+                cell.userRatingLabel.text = "⭐️⭐️"
+            case 3:
+                cell.userRatingLabel.text = "⭐️⭐️⭐️"
+            case 4:
+                cell.userRatingLabel.text = "⭐️⭐️⭐️⭐️"
+            case 5:
+                cell.userRatingLabel.text = "⭐️⭐️⭐️⭐️⭐️"
+            default:
+                cell.userRatingLabel.text = "-"
+            }
+            
+        } else {
+            cell.titleLabel.font = cell.titleLabel.font.withSize(16)
+            cell.dateLabel.text = ""
+            cell.userRatingLabel.text = ""
+        }
+        
+
         
         return cell
+    }
+    
+    
+    //TAR MAN BORT I EN LISTA FÖRSVINNER DEN I DEN ANDRA OCKSÅ. Fixa!
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            CoreDataHelper.getContext().delete(filmList[indexPath.row])
+            CoreDataHelper.saveContext()
+            if filmLogMode {
+                filmList = CoreDataHelper.getAllMoviesInList(listName: CoreDataHelper.filmLogListName)!
+            } else {
+                filmList = CoreDataHelper.getAllMoviesInList(listName: CoreDataHelper.watchListListName)!
+            }
+            
+            tableView.reloadData()
+        }
+        
     }
 
     /*
@@ -72,15 +126,32 @@ class FilmLogTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
+    
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let detailVC : DetailViewController = segue.destination as! DetailViewController
+        if let indexPath = self.tableView.indexPathForSelectedRow {
+            let movie = Movie(imdbID: filmList[indexPath.row].imdbID!, title: filmList[indexPath.row].title!, year: Int(filmList[indexPath.row].year))
+            detailVC.movie = movie
+            
+            webRequestHelper.getDetails(movie: movie, closure: { _ in
+                DispatchQueue.main.async {
+                    detailVC.setUpView()
+                }
+            })
+        }
     }
-    */
+    
+}
 
+class LogTableViewCell : UITableViewCell {
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var userRatingLabel: UILabel!
+    var movie : CoreMovie!
+    
 }

@@ -12,7 +12,7 @@ import UIKit
 class Movie {
 
     let imdbID: String
-    let title: String
+    var title: String?
     var year: Int?
     var posterUrl: URL?
     var plot: String?
@@ -27,6 +27,12 @@ class Movie {
     var posterImage: UIImage?
     var isAllInfoDownloaded = false
 
+    
+    init(imdbID : String) {
+        
+        self.imdbID = imdbID
+        
+    }
     
     init(imdbID : String, title : String) {
         

@@ -110,9 +110,21 @@ class WebRequestHelper {
         }
     }
     
+    
     func parseDetails(data: Data, movie: Movie) {
         do {
             if let parsed = try JSONSerialization.jsonObject(with: data, options: jsonOptions) as? [String:String] {
+                
+                if movie.posterUrl == nil {
+                    if let poster = parsed["Poster"] {
+                        print(poster)
+                        if poster != "N/A" {
+                            movie.posterUrl = URL(string: poster)
+                        }
+
+                    }
+                }
+                
                 if let runtime = parsed["Runtime"], let genre = parsed["Genre"],
                     let director = parsed["Director"], let actors = parsed["Actors"],
                     let plot = parsed["Plot"], let imdbRating = parsed["imdbRating"] {
@@ -150,9 +162,6 @@ class WebRequestHelper {
         let task = URLSession.shared.dataTask(with: request) {
             (maybeData: Data?, response: URLResponse?, error: Error?) in
             if let actualData = maybeData {
-//                print("Actual Data: \(actualData)")
-//                print("Response: \(response)")
-//                print("Error: \(error)")
                 closure(actualData)
             } else {
                 NSLog("No data received.")

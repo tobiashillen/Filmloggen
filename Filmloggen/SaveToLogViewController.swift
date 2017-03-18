@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class SaveToLogViewController: UIViewController {
-    
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var rate1Button: UIButton!
     @IBOutlet weak var rate2Button: UIButton!
     @IBOutlet weak var rate3Button: UIButton!
@@ -27,6 +27,17 @@ class SaveToLogViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let title = movie.title {
+            if let year = movie.year {
+                titleLabel.text = "\(title) (\(year))"
+            } else {
+                titleLabel.text = "\(title))"
+            }
+        } else {
+            titleLabel.text = "-"
+        }
+        
     }
     
 
@@ -76,13 +87,13 @@ class SaveToLogViewController: UIViewController {
         if CoreDataHelper.doCoreMovieExist(imdbId: movie.imdbID) {
             coreMovie = CoreDataHelper.getCoreMovieFromDB(imdbId: movie.imdbID)
         } else {
-            coreMovie = CoreDataHelper.createCoreMovie(imdbID: movie.imdbID, title: movie.title)
+            coreMovie = CoreDataHelper.createCoreMovie(imdbID: movie.imdbID, title: movie.title!)
         }
         
         if let year = movie.year {
-            coreMovie.year = Int16(year)
+            coreMovie.year = Int32(year)
         }
-        coreMovie.userRating = Int16(rating)
+        coreMovie.userRating = Int32(rating)
         coreMovie.watchDate = datePicker.date as NSDate
         
         

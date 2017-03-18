@@ -44,13 +44,16 @@ class DetailViewController: UIViewController {
             disableWatchListButton()
         }
         
-        
-        if let year = movie.year {
-            titleLabel.text = "\(movie.title) (\(year))"
+        if let title = movie.title {
+            if let year = movie.year {
+                titleLabel.text = "\(title) (\(year))"
+            } else {
+                titleLabel.text = "\(title))"
+            }
         } else {
-            titleLabel.text = "\(movie.title))"
+            titleLabel.text = "-"
         }
- 
+        
         if let runningTime = movie.runningTime {
             runningTimeLable.text = "\(runningTime) minuter"
         } else {
@@ -116,11 +119,11 @@ class DetailViewController: UIViewController {
         if CoreDataHelper.doCoreMovieExist(imdbId: movie.imdbID) {
             coreMovie = CoreDataHelper.getCoreMovieFromDB(imdbId: movie.imdbID)
         } else {
-            coreMovie = CoreDataHelper.createCoreMovie(imdbID: movie.imdbID, title: movie.title)
+            coreMovie = CoreDataHelper.createCoreMovie(imdbID: movie.imdbID, title: movie.title!)
         }
         
         if let year = movie.year {
-            coreMovie.year = Int16(year)
+            coreMovie.year = Int32(year)
         }
         
         let watchlist = CoreDataHelper.getListFromDB(listName: CoreDataHelper.watchListListName)

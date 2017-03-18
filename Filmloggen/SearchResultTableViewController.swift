@@ -41,11 +41,16 @@ class SearchResultTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SearchResultTableViewCell
         cell.movie = searchResults[indexPath.row]
         
-        if let year = cell.movie.year {
-            cell.movieTitleLabel.text = "\(cell.movie.title) (\(year))"
+        if let title = cell.movie.title {
+            if let year = cell.movie.year {
+                cell.movieTitleLabel.text = "\(title) (\(year))"
+            } else {
+                cell.movieTitleLabel.text = "\(title) (-)"
+            }
         } else {
-            cell.movieTitleLabel.text = "\(cell.movie.title) (-)"
+            cell.movieTitleLabel.text = "-"
         }
+        
         
         if let posterImage = cell.movie.posterImage {
             cell.posterImage.image = posterImage
