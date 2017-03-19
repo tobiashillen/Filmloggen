@@ -354,7 +354,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7H-Z9-fDO">
                                         <rect key="frame" x="245" y="450" width="43" height="30"/>
                                         <state key="normal" title="Logga">
-                                            <color key="titleColor" red="0.80000000000000004" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="6vd-gR-ZXr" kind="show" id="PhZ-zB-oDe"/>
@@ -363,7 +363,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2C-CG-bPz">
                                         <rect key="frame" x="0.0" y="450" width="45" height="30"/>
                                         <state key="normal" title="Vill se!">
-                                            <color key="titleColor" red="0.80000000000000004" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" red="1" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="onWatchListButtonPressed:" destination="ck4-rJ-1PH" eventType="touchUpInside" id="ZIb-aB-FMa"/>
