@@ -20,12 +20,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var actor3Label: UILabel!
     @IBOutlet weak var actor4Label: UILabel!
     @IBOutlet weak var plotTextView: UITextView!
+    @IBOutlet weak var yourRatingLabel: UILabel!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var watchListButton: UIButton!
     
+    @IBOutlet weak var logMovieButton: UIButton!
     let orangeColor = UIColor(red: 255/255, green: 102/255, blue: 0, alpha: 1)
     let grayColor = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1)
     var movie: Movie!
+    var coreMovie: CoreMovie?
     let webRequestHelper = WebRequestHelper()
 
     override func viewDidLoad() {
@@ -39,9 +42,25 @@ class DetailViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        setUpView()
+    }
+    
     func setUpView() {
         if CoreDataHelper.isMovieInList(imdbID: movie.imdbID, listName: CoreDataHelper.watchListListName) {
             disableWatchListButton()
+        }
+        
+        if CoreDataHelper.isMovieInList(imdbID: movie.imdbID, listName: CoreDataHelper.filmLogListName) {
+            logMovieButton.setTitle("Ändra logg", for: .normal)
+            coreMovie = CoreDataHelper.getCoreMovieFromDB(imdbId: movie.imdbID)
+            if let watchdate = coreMovie?.watchDate, let rating = coreMovie?.userRating {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd"
+                yourRatingLabel.text = "Du såg filmen \((dateFormatter.string(from: watchdate as Date))) och gav den \(rating) i betyg."
+            }
+        } else {
+            yourRatingLabel.text = ""
         }
         
         if let title = movie.title {
@@ -138,6 +157,7 @@ class DetailViewController: UIViewController {
         watchListButton.setTitleColor(grayColor, for: .normal)
         watchListButton.setTitle("Ligger i din vill se-lista", for: .normal)
     }
+ 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

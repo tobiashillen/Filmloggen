@@ -57,7 +57,6 @@ class SearchResultTableViewController: UITableViewController {
         } else {
             cell.posterImage.image = #imageLiteral(resourceName: "Tempposter")
             if let posterURL = cell.movie.posterUrl {
-                cell.posterImage.image = #imageLiteral(resourceName: "Tempposter")
                 webRequestHelper.downloadImage(url: posterURL, closure: { image in
                     DispatchQueue.main.async {
                         cell.movie.posterImage = image
