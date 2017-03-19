@@ -116,7 +116,6 @@ class WebRequestHelper {
                 
                 if movie.posterUrl == nil {
                     if let poster = parsed["Poster"] {
-                        print(poster)
                         if poster != "N/A" {
                             movie.posterUrl = URL(string: poster)
                         }
