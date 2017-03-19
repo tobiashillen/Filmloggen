@@ -16,7 +16,6 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         CoreDataHelper.setUpCoreData()
-        CoreDataHelper.printAllCoreMovies()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

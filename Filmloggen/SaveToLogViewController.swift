@@ -101,7 +101,6 @@ class SaveToLogViewController: UIViewController {
         }
     }
     
-    
     @IBAction func onSaveButtonPressed(_ sender: UIButton) {
         if CoreDataHelper.isMovieInList(imdbID: movie.imdbID, listName: CoreDataHelper.filmLogListName) {
             if let year = movie.year {
@@ -122,25 +121,10 @@ class SaveToLogViewController: UIViewController {
             coreMovie.userRating = Int32(rating)
             coreMovie.watchDate = datePicker.date as NSDate
             
-            
             let filmlog = CoreDataHelper.getListFromDB(listName: CoreDataHelper.filmLogListName)
-            
             filmlog?.addToMovies(coreMovie)
-
         }
-        
         CoreDataHelper.saveContext()
         self.navigationController!.popViewController(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

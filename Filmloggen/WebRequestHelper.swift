@@ -108,8 +108,7 @@ class WebRequestHelper {
                 closure()
             })
         }
-    }
-    
+    }    
     
     func parseDetails(data: Data, movie: Movie) {
         do {
@@ -121,7 +120,6 @@ class WebRequestHelper {
                         if poster != "N/A" {
                             movie.posterUrl = URL(string: poster)
                         }
-
                     }
                 }
                 

@@ -29,7 +29,6 @@ class FilmLogTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filmList.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LogTableViewCell
@@ -40,7 +39,6 @@ class FilmLogTableViewController: UITableViewController {
             cell.titleLabel.text = "\(title) (\(Int(cell.movie.year)))"
  
         }
-        
         
         if filmLogMode {
             if let watchdate = cell.movie.watchDate {
@@ -70,13 +68,10 @@ class FilmLogTableViewController: UITableViewController {
             cell.userRatingLabel.text = ""
         }
         
-
-        
         return cell
     }
     
     
-    //TAR MAN BORT I EN LISTA FÖRSVINNER DEN I DEN ANDRA OCKSÅ. Fixa!
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             if filmLogMode {
@@ -102,31 +97,6 @@ class FilmLogTableViewController: UITableViewController {
         }
         
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-    
     
     // MARK: - Navigation
     
