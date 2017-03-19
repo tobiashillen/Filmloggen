@@ -10,7 +10,7 @@
     </entity>
     <entity name="FilmList" representedClassName="FilmList" syncable="YES" codeGenerationType="class">
         <attribute name="listName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CoreMovie" inverseName="lists" inverseEntity="CoreMovie" syncable="YES"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CoreMovie" inverseName="lists" inverseEntity="CoreMovie" syncable="YES"/>
     </entity>
     <elements>
         <element name="CoreMovie" positionX="-45" positionY="0" width="128" height="133"/>

@@ -79,14 +79,25 @@ class FilmLogTableViewController: UITableViewController {
     //TAR MAN BORT I EN LISTA FÖRSVINNER DEN I DEN ANDRA OCKSÅ. Fixa!
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            CoreDataHelper.getContext().delete(filmList[indexPath.row])
-            CoreDataHelper.saveContext()
             if filmLogMode {
+                filmList[indexPath.row].removeFromLists(CoreDataHelper.getListFromDB(listName: CoreDataHelper.filmLogListName)!)
+                
+                if !CoreDataHelper.isMovieInList(imdbID: filmList[indexPath.row].imdbID!, listName: CoreDataHelper.watchListListName) {
+                    CoreDataHelper.getContext().delete(filmList[indexPath.row])
+                }
+                
                 filmList = CoreDataHelper.getAllMoviesInList(listName: CoreDataHelper.filmLogListName)!
             } else {
+                filmList[indexPath.row].removeFromLists(CoreDataHelper.getListFromDB(listName: CoreDataHelper.watchListListName)!)
+                
+                if !CoreDataHelper.isMovieInList(imdbID: filmList[indexPath.row].imdbID!, listName: CoreDataHelper.filmLogListName) {
+                    CoreDataHelper.getContext().delete(filmList[indexPath.row])
+                }
+                
                 filmList = CoreDataHelper.getAllMoviesInList(listName: CoreDataHelper.watchListListName)!
             }
             
+            CoreDataHelper.saveContext()
             tableView.reloadData()
         }
         
@@ -100,17 +111,6 @@ class FilmLogTableViewController: UITableViewController {
     }
     */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
     /*
     // Override to support rearranging the table view.

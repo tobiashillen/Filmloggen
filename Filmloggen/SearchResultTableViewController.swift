@@ -70,13 +70,16 @@ class SearchResultTableViewController: UITableViewController {
         }
         
         if let actors = cell.movie.actors {
+            
             if actors.count > 0 {
                 cell.actorsLabel.text! = "\(actors[0])"
             }
+            
             if actors.count > 1 {
                 cell.actorsLabel.text! += ", \(actors[1])"
             }
         } else {
+            cell.actorsLabel.text! = ""
             if !cell.movie.isAllInfoDownloaded {
                 webRequestHelper.getDetails(movie: cell.movie!, closure: { _ in
                     DispatchQueue.main.async {
